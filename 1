@@ -1,0 +1,49 @@
+package com.example.demo;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class calccontroller {
+	@RequestMapping("/add/{a}/{b}")
+	public double add(@PathVariable double a, double b) {
+		return a+b;
+	}
+	
+	@RequestMapping("/hello")
+	public String sayHello() {
+		return "hello";
+	}
+	
+	@RequestMapping("/person")
+	public oseba getPerson( ) {
+		oseba o = new oseba("janez", "novak", "666-4444");
+		return o;
+	}
+	
+	
+	
+	private String name;
+	private double price;
+	
+	
+	
+	public calccontroller(String name, double price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+}
